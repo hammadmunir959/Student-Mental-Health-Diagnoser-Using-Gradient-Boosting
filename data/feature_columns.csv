@@ -1,0 +1,24 @@
+feature
+Gender
+Age
+Academic Pressure
+Work Pressure
+CGPA
+Study Satisfaction
+Job Satisfaction
+Have you ever had suicidal thoughts ?
+Work/Study Hours
+Financial Stress
+Family History of Mental Illness
+Sleep Duration_5-6 hours
+Sleep Duration_Less than 5 hours
+Sleep Duration_7-8 hours
+Sleep Duration_More than 8 hours
+Sleep Duration_Others
+Dietary Habits_Healthy
+Dietary Habits_Moderate
+Dietary Habits_Unhealthy
+Dietary Habits_Others
+City_encoded
+Profession_encoded
+Degree_encoded
