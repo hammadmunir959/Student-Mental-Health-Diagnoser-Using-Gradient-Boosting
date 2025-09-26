@@ -61,7 +61,7 @@ class DataPreprocessor:
             # Direct numerical features
             numerical_features = [
                 'age', 'academic_pressure', 'work_pressure', 'cgpa',
-                'study_satisfaction', 'job_satisfaction', 'work_study_hours', 'financial_stress'
+                'study_satisfaction', 'work_study_hours', 'financial_stress'
             ]
             
             # Feature name mapping to match model expectations
@@ -90,6 +90,21 @@ class DataPreprocessor:
             # Process dietary habits
             dietary_habits = data.get('dietary_habits', 'Moderate')
             processed['Diet_Score'] = self.diet_mapping.get(dietary_habits, 2)
+            
+            # Process job satisfaction separately
+            job_satisfaction = data.get('job_satisfaction', 'Not Applicable')
+            if job_satisfaction == 'Not Applicable':
+                processed['Job Satisfaction'] = 0.0  # Neutral value for not applicable
+            elif isinstance(job_satisfaction, (int, float)):
+                # If it's already a number, use it directly
+                processed['Job Satisfaction'] = float(job_satisfaction)
+            else:
+                # Extract numeric value from string like "1 - Very Dissatisfied"
+                try:
+                    job_sat_value = float(str(job_satisfaction).split(' - ')[0])
+                    processed['Job Satisfaction'] = job_sat_value
+                except (ValueError, IndexError, AttributeError):
+                    processed['Job Satisfaction'] = 0.0
             
             # Encode categorical variables
             gender = data.get('gender', 'Male')
@@ -226,6 +241,10 @@ class DataPreprocessor:
             
             # Low satisfaction levels
             study_satisfaction = data.get('study_satisfaction', 0)
+            try:
+                study_satisfaction = float(study_satisfaction)
+            except (ValueError, TypeError):
+                study_satisfaction = 0
             if study_satisfaction <= 2:
                 risk_factors.append({
                     'factor': 'Low Study Satisfaction',
@@ -235,6 +254,10 @@ class DataPreprocessor:
                 })
             
             job_satisfaction = data.get('job_satisfaction', 0)
+            try:
+                job_satisfaction = float(job_satisfaction)
+            except (ValueError, TypeError):
+                job_satisfaction = 0
             if job_satisfaction <= 2 and job_satisfaction > 0:  # Only if they have a job
                 risk_factors.append({
                     'factor': 'Low Job Satisfaction',
@@ -245,6 +268,10 @@ class DataPreprocessor:
             
             # Low CGPA
             cgpa = data.get('cgpa', 0)
+            try:
+                cgpa = float(cgpa)
+            except (ValueError, TypeError):
+                cgpa = 0
             if cgpa < 6.0:
                 risk_factors.append({
                     'factor': 'Low Academic Performance',

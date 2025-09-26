@@ -1,14 +1,16 @@
 # 🧠 Student Mental Health Diagnoser Using Gradient Boosting
 
-A comprehensive machine learning system that predicts depression risk in students using advanced Gradient Boosting algorithms. This project provides a RESTful API for mental health assessment and diagnosis.
+A comprehensive machine learning system that predicts depression risk in students using advanced Gradient Boosting algorithms. This project provides both a RESTful API and an interactive Streamlit web application for mental health assessment and diagnosis.
 
 ## 🚀 Features
 
 - **Advanced ML Model**: Gradient Boosting classifier with 84.5% accuracy
+- **Interactive Web App**: Streamlit-based MCQ interface for easy assessment
 - **RESTful API**: FastAPI-based backend with comprehensive endpoints
 - **Risk Analysis**: Detailed risk factor analysis and recommendations
 - **Real-time Predictions**: Instant depression risk assessment
 - **Comprehensive Data Processing**: Advanced preprocessing and feature engineering
+- **Professional Support**: Integrated Umang Pakistan contact information
 
 ## 📊 Model Performance
 
@@ -29,6 +31,12 @@ mental_health_diagnoser/
 │   ├── predictor.py              # ML model prediction logic
 │   ├── preprocessor.py           # Data preprocessing and feature engineering
 │   └── requirements.txt          # API dependencies
+├── app/                          # Streamlit web application
+│   ├── streamlit_app.py          # Main Streamlit application
+│   ├── streamlit_utils.py        # Utility functions for the app
+│   ├── test_app.py              # Testing script
+│   ├── requirements_streamlit.txt # Streamlit dependencies
+│   └── run_app.sh               # Startup script
 ├── data/                         # Datasets and processed data
 │   ├── eda_complete.csv          # Complete EDA dataset
 │   ├── preprocessed_data.csv     # Preprocessed training data
@@ -67,6 +75,9 @@ cd mental_health_diagnoser
 # Install API dependencies
 pip install -r api/requirements.txt
 
+# Install Streamlit app dependencies
+pip install -r app/requirements_streamlit.txt
+
 # Or install all dependencies
 pip install fastapi uvicorn pandas scikit-learn joblib numpy streamlit plotly
 ```
@@ -80,7 +91,20 @@ ls models/
 
 ## 🚀 Quick Start
 
-### Start the API Server
+### Option 1: Streamlit Web Application (Recommended)
+
+```bash
+# Start the Streamlit app
+cd app
+streamlit run streamlit_app.py
+
+# Or use the startup script
+./run_app.sh
+
+# App will be available at http://localhost:8501
+```
+
+### Option 2: FastAPI Server
 
 ```bash
 # Start the FastAPI server
@@ -91,6 +115,42 @@ python main.py
 # API documentation at http://localhost:8000/docs
 ```
 
+### Option 3: Test the Application
+
+```bash
+# Test the Streamlit app
+cd app
+python test_app.py
+```
+
+
+## 🌐 Streamlit Web Application
+
+### Features
+
+- **📝 Interactive MCQ Interface**: One question at a time with progress tracking
+- **🎯 User-Friendly Design**: Clean, responsive interface that works on all devices
+- **📊 Real-time Visualization**: Interactive charts and gauges for risk assessment
+- **💡 Personalized Recommendations**: Evidence-based suggestions based on risk factors
+- **🔒 Privacy-Focused**: No data stored permanently, all processing in memory
+- **📞 Professional Support**: Integrated Umang Pakistan contact information
+
+### Assessment Process
+
+1. **16 Carefully Designed Questions**: Covering all mental health risk factors
+2. **Progress Tracking**: Visual progress bar and question navigation
+3. **Data Validation**: All inputs validated before proceeding
+4. **ML Processing**: Real-time analysis using trained Gradient Boosting model
+5. **Comprehensive Results**: Risk level, probability, factors, and recommendations
+
+### Professional Support Integration
+
+The app includes direct contact information for **Umang Pakistan**:
+- **Phone**: (92) 0311 7786264
+- **Email**: hr@umang.com.pk
+- **Website**: www.umang.com.pk
+
+Umang provides online suicide prevention and counselling services with immediate access to clinical psychologists, therapists, and counsellors.
 
 ## 📡 API Endpoints
 
@@ -196,6 +256,49 @@ The system provides comprehensive risk analysis:
 - Evidence-based suggestions for mental health improvement
 - Resource links and professional guidance
 
+## 🚀 Deployment
+
+### Streamlit Cloud (Recommended)
+
+1. **Push to GitHub:**
+   ```bash
+   git add .
+   git commit -m "Add Streamlit web application"
+   git push origin main
+   ```
+
+2. **Deploy on Streamlit Cloud:**
+   - Go to [share.streamlit.io](https://share.streamlit.io)
+   - Sign in with GitHub
+   - Click "New app"
+   - Select your repository
+   - Set main file path: `app/streamlit_app.py`
+   - Click "Deploy"
+
+### Docker Deployment
+
+```dockerfile
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements_streamlit.txt .
+RUN pip install -r requirements_streamlit.txt
+COPY . .
+EXPOSE 8501
+CMD ["streamlit", "run", "app/streamlit_app.py", "--server.address", "0.0.0.0"]
+```
+
+### Local Development
+
+```bash
+# Run Streamlit app
+cd app
+streamlit run streamlit_app.py
+
+# Run FastAPI server
+cd api
+python main.py
+```
+
 ## 🛠️ Development
 
 ### Model Training
@@ -246,12 +349,14 @@ For support and questions:
 
 ## 🔮 Future Enhancements
 
-- [ ] Real-time monitoring dashboard
+- [x] Interactive web application (Streamlit)
+- [x] Real-time visualization tools
+- [x] Professional support integration
 - [ ] Mobile application
 - [ ] Integration with health systems
-- [ ] Advanced visualization tools
 - [ ] Multi-language support
 - [ ] Telemedicine integration
+- [ ] Real-time monitoring dashboard
 
 ## 📚 References
 
