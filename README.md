@@ -1,8 +1,8 @@
-# 🧠 Student Mental Health Diagnoser Using Gradient Boosting
+# Student Mental Health Diagnoser Using Gradient Boosting
 
 A comprehensive machine learning system that predicts depression risk in students using advanced Gradient Boosting algorithms. This project provides a RESTful API for mental health assessment and diagnosis.
 
-## 🚀 Features
+##  Features
 
 - **Advanced ML Model**: Gradient Boosting classifier with 84.5% accuracy
 - **RESTful API**: FastAPI-based backend with comprehensive endpoints
@@ -10,7 +10,7 @@ A comprehensive machine learning system that predicts depression risk in student
 - **Real-time Predictions**: Instant depression risk assessment
 - **Comprehensive Data Processing**: Advanced preprocessing and feature engineering
 
-## 📊 Model Performance
+##  Model Performance
 
 - **Accuracy**: 84.54%
 - **AUC Score**: 0.9201
@@ -20,7 +20,7 @@ A comprehensive machine learning system that predicts depression risk in student
 - **Training Samples**: 22,320
 - **Test Samples**: 5,581
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 mental_health_diagnoser/
@@ -46,7 +46,7 @@ mental_health_diagnoser/
 └── README.md                    # This file
 ```
 
-## 🔧 Installation & Setup
+##  Installation & Setup
 
 ### Prerequisites
 
@@ -78,7 +78,7 @@ pip install fastapi uvicorn pandas scikit-learn joblib numpy streamlit plotly
 ls models/
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Start the API Server
 
@@ -92,7 +92,7 @@ python main.py
 ```
 
 
-## 📡 API Endpoints
+##  API Endpoints
 
 ### Core Endpoints
 
@@ -131,7 +131,7 @@ response = requests.post(url, json=data)
 result = response.json()
 ```
 
-## 🎯 Input Features
+##  Input Features
 
 The model analyzes the following student characteristics:
 
@@ -157,7 +157,7 @@ The model analyzes the following student characteristics:
 - **Suicidal Thoughts**: History of suicidal ideation
 - **Family History**: Family history of mental illness
 
-## 📈 Model Details
+##  Model Details
 
 ### Algorithm: Gradient Boosting
 - **Base Estimators**: Decision Trees
@@ -177,7 +177,7 @@ The model analyzes the following student characteristics:
 - **Class Balance**: Handled through stratified sampling
 - **Feature Importance**: Analyzed for model interpretability
 
-## 🔍 Risk Assessment
+##  Risk Assessment
 
 The system provides comprehensive risk analysis:
 
@@ -196,7 +196,7 @@ The system provides comprehensive risk analysis:
 - Evidence-based suggestions for mental health improvement
 - Resource links and professional guidance
 
-## 🛠️ Development
+##  Development
 
 ### Model Training
 
@@ -218,14 +218,14 @@ To add new features to the model:
 3. Update the API validation schemas
 4. Test the new features thoroughly
 
-## 📊 Data Privacy & Ethics
+##  Data Privacy & Ethics
 
 - **Anonymized Data**: All personal identifiers removed
 - **Consent-Based**: Data collected with proper consent
 - **Secure Processing**: No data stored permanently
 - **Ethical Guidelines**: Follows mental health research ethics
 
-## 🤝 Contributing
+##  Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -233,32 +233,7 @@ To add new features to the model:
 4. Add tests if applicable
 5. Submit a pull request
 
-## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Support
-
-For support and questions:
-- Create an issue in the repository
-- Contact the development team
-- Check the documentation at `/docs` endpoint
-
-## 🔮 Future Enhancements
-
-- [ ] Real-time monitoring dashboard
-- [ ] Mobile application
-- [ ] Integration with health systems
-- [ ] Advanced visualization tools
-- [ ] Multi-language support
-- [ ] Telemedicine integration
-
-## 📚 References
-
-- Mental Health Research Foundation
-- WHO Mental Health Guidelines
-- Academic studies on student mental health
-- Machine Learning best practices
 
 ---
 
